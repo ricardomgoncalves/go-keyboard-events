@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../go-keyboard-events/.idea/go-keyboard-events.iml" filepath="$PROJECT_DIR$/../go-keyboard-events/.idea/go-keyboard-events.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/go-keyboard-events.iml" filepath="$PROJECT_DIR$/.idea/go-keyboard-events.iml" />
     </modules>
   </component>
 </project>
