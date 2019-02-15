@@ -45,10 +45,10 @@ func GetKeyEvent(key string) (KeyEvent, error) {
 	return ke, nil
 }
 
-func StartListenToKeyboard(keyboard string) error {
+func StartListenToKeyboard(keyboard string) {
 	k, err := keylogger.New(keyboard)
 	if err != nil {
-		return err
+		return
 	}
 	defer k.Close()
 
@@ -62,8 +62,6 @@ func StartListenToKeyboard(keyboard string) error {
 			keyEventHandle(e)
 		}
 	}
-
-	return nil
 }
 
 var handlingEvent KeyEvent = nil
