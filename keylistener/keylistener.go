@@ -3,6 +3,7 @@ package keylistener
 import (
 	"errors"
 	"fmt"
+	"log"
 
 	"github.com/MarinX/keylogger"
 	"github.com/ricardomgoncalves/go-keyboard-events/keycode"
@@ -48,6 +49,7 @@ func GetKeyEvent(key string) (KeyEvent, error) {
 func StartListenToKeyboard(keyboard string) {
 	k, err := keylogger.New(keyboard)
 	if err != nil {
+		log.Println(err.Error())
 		return
 	}
 	defer k.Close()
