@@ -1,7 +1,7 @@
 # go-keyboard-events
 Project that allows easy implementing global key events
 
-#dependecies
+## dependecies
 github.com/MarinX/keylogger
 
-#WORK IN PROGRESS
+## WORK IN PROGRESS
