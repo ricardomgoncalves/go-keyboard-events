@@ -15,13 +15,13 @@ type KeyHandler func()
 
 type KeyEvent interface {
 	//The moment a key is pressed
-	KeyDown()
+	KeyDown(string)
 
 	//The moment the key is released
-	KeyUp()
+	KeyUp(string)
 
 	//Every tick the key is being pressed
-	Key()
+	Key(string)
 }
 
 var keyRegister = map[string]KeyEvent{}
@@ -72,7 +72,7 @@ var currentKeys []string
 func keyEventHandle(e keylogger.InputEvent) {
 	if e.KeyPress() {
 		if handlingEvent != nil {
-			handlingEvent.KeyUp()
+			handlingEvent.KeyUp(e.KeyString())
 		}
 
 		currentKeys = append(currentKeys, e.KeyString())
@@ -89,24 +89,29 @@ func keyEventHandle(e keylogger.InputEvent) {
 			return
 		}
 
-		handlingEvent.KeyDown()
+		handlingEvent.KeyDown(e.KeyString())
 		return
-	} else if e.KeyRelease() {
+	}
+
+	if e.KeyRelease() {
 		filterKeys(e.KeyString())
 
 		if handlingEvent == nil {
 			return
 		}
 
-		handlingEvent.KeyUp()
+		handlingEvent.KeyUp(e.KeyString())
 
 		k := getKeyString(currentKeys)
 
 		he, _ := GetKeyEvent(k)
 
 		handlingEvent = he
-	} else if handlingEvent != nil {
-		handlingEvent.Key()
+		return
+	}
+
+	if handlingEvent != nil {
+		handlingEvent.Key(e.KeyString())
 	}
 }
 

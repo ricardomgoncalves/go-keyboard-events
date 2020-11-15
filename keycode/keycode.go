@@ -13,6 +13,18 @@ const (
 	Three        = "3"
 	Four         = "4"
 	Five         = "5"
+	Q            = "Q"
+	W            = "W"
+	E            = "E"
+	R            = "R"
+	A            = "A"
+	S            = "S"
+	D            = "D"
+	F            = "F"
+	Z            = "Z"
+	X            = "X"
+	C            = "C"
+	V            = "V"
 )
 
 type KeyCode string
